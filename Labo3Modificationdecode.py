@@ -1,4 +1,4 @@
-m = "Mage"
+m = "Mage"           
 p = "Paladin"
 a = "Assassin"
 bfe = "Bâton de feu"
