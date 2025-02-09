@@ -1,85 +1,80 @@
-m = "Mage"           
-p = "Paladin"
-a = "Assassin"
-bfe = "Bâton de feu"
-bf = "Bâton de foudre"
-be ="Bâton d'eau"
-e = "Épee longue"
-eb = "épée courte et bouclier"
-l = "Lance"
-d = "Dagues"
-p = "Poison"
-cl = "Couteaux de lancer"
-f = "facile"
-mo = "moyen"
-dif = "difficile"
-d = "Donjon"
-f = "Forêt"
-lab = "Labyrinthe"
-choix_valides_mage = ["bfe", "bf", "be"]
-choix_valides_paladin = ["e", "eb", "l"]
-choix_valides_assassin = ["d", "p", "cl"]
-Personnage = [m, p, a]
-Arme = [bfe, bf, e, l, d, p, cl]
-Personnage = input(f"Choisissez votre personnage {Personnage[0]} (m), Paladin (p), Assasin (a)\n: ")
-Sexe = input(f"Choisissez le sexe votre personnage : Homme (h) ou Femme (f)\n: ")
+mage = "Mage"
+paladin = "Paladin"
+assassin = "Assassin"
+batonfeu = "Bâton de feu"
+batonfoudre = "Bâton de foudre"
+batoneau = "Bâton d'eau"
+epeelongue = "Épée longue"
+epeebouclier = "Épée courte et bouclier"
+lance = "Lance"
+dagues = "Dagues"
+poison = "Poison"
+couteaulance = "Couteaux de lancer"
+facile = "Facile"
+moyen = "Moyen"
+difficile = "Difficile"
+donjon = "Donjon"
+foret = "Forêt"
+labyrinthe = "Labyrinthe"
+homme = "Homme"
+femme = "Femme"
 
-if Personnage == "m":
-    weapon_choice = input("Choisissez votre arme : Bâton de feu (bfe), Bâton d'eau (be) ou Bâton de foudre (bf)\n: ")
-    Personage_choisi = m
-    if weapon_choice == "bfe":
-        arme_choisi = bfe
-    elif weapon_choice == "bf":
-        arme_choisi = bf
-    elif weapon_choice == "be":
-        arme_choisi = be
+# Choix valides pour chaque catégorie
+choix_valides_mage = ["Bâton de feu", "Bâton de foudre", "Bâton d'eau"]
+choix_valides_paladin = ["Épée longue", "Épée courte et bouclier", "Lance"]
+choix_valides_assassin = ["Dagues", "Poison", "Couteaux de lancer"]
+choix_valides_difficulte = ["Facile", "Moyen", "Difficile"]
 
-if Personnage == "p":
-    weapon_choice = input("Choisissez votre arme : Épee longue (e), épée court et bouclier (eb) ou Lance (l)\n: ")
-    Personage_choisi = p
-    if weapon_choice == "e":
-        arme_choisi = e
-    elif weapon_choice == "l":
-        arme_choisi = l
-    elif weapon_choice == "eb":
-        arme_choisi = eb
+# Demande du personnage 
+Personnage = input(f"Choisissez votre personnage : {mage}, {paladin}, {assassin}\n: ")
+while Personnage not in [mage, paladin, assassin]:
+    print("Choix invalide. Essayez à nouveau.")
+    Personnage = input(f"Choisissez votre personnage : {mage}, {paladin}, {assassin}\n: ")
+# Demande du sexe
+Sexe = input(f"Choisissez le sexe de votre personnage : {homme} ou {femme}\n: ")
+while Sexe not in [homme, femme]:
+    print("Choix de sexe invalide. Essayez à nouveau.")
+    Sexe = input(f"Choisissez le sexe de votre personnage : {homme} ou {femme}\n: ")
 
-if Personnage == "a":
-    weapon_choice = input("Choisissez votre arme : Dagues (d) ou Poison (p)\n: ")
-    Personage_choisi = a
-    while True:
-        if weapon_choice == "d":
-            arme_choisi = d
-            if weapon_choice in choix_valides_assassin:
-                print(f"Vous avez choisi l'option {weapon_choice}.")
-            break  # Sortir de la boucle si le choix est valide
-        else:
-            print("Choix invalide. Essayez à nouveau.")  # Si le choix est invalide, recommencer
+# Choix de l'arme
+if Personnage == mage:
+    weapon_choice = input("Choisissez votre arme : Bâton de feu, Bâton d'eau ou Bâton de foudre\n: ")
+    while weapon_choice not in choix_valides_mage:
+        print("Choix invalide. Essayez à nouveau.")
+        weapon_choice = input("Choisissez votre arme : Bâton de feu, Bâton d'eau ou Bâton de foudre\n: ")
+    arme_choisi = weapon_choice
 
-        elif weapon_choice == "p":
-        arme_choisi = p
-            if weapon_choice in choix_valides_assassin:
-                print(f"Vous avez choisi l'option {weapon_choice}.")
-            break  # Sortir de la boucle si le choix est valide
-        else:
-            print("Choix invalide. Essayez à nouveau.")  # Si le choix est invalide, recommencer
-        elif weapon_choice == "cl":
-        arme_choisi = cl
-            if weapon_choice in choix_valides_assassin:
-                print(f"Vous avez choisi l'option {weapon_choice}.")
-            break  # Sortir de la boucle si le choix est valide
-        else:
-            print("Choix invalide. Essayez à nouveau.")  # Si le choix est invalide, recommencer
+elif Personnage == paladin:
+    weapon_choice = input("Choisissez votre arme : Épée longue, Épée courte et bouclier ou Lance\n: ")
+    while weapon_choice not in choix_valides_paladin:
+        print("Choix invalide. Essayez à nouveau.")
+        weapon_choice = input("Choisissez votre arme : Épée longue, Épée courte et bouclier ou Lance\n: ")
+    arme_choisi = weapon_choice
 
+elif Personnage == assassin:
+    weapon_choice = input("Choisissez votre arme : Dagues, Couteaux de lancer ou Poison\n: ")
+    while weapon_choice not in choix_valides_assassin:
+        print("Choix invalide. Essayez à nouveau.")
+        weapon_choice = input("Choisissez votre arme : Dagues, Couteaux de lancer ou Poison\n: ")
+    arme_choisi = weapon_choice
 
-Difficulté = input(f"Choisissez la difficulté que vous désirez : facile (f), moyen (mo) ou difficile (dif)\n: ")
+# Choix de la difficulté 
+Difficulté = input(f"Choisissez la difficulté que vous désirez : {facile}, {moyen}, {difficile}\n: ")
+while Difficulté not in choix_valides_difficulte:
+    print("Choix de difficulté invalide. Essayez à nouveau.")
+    Difficulté = input(f"Choisissez la difficulté que vous désirez : {facile}, {moyen}, {difficile}\n: ")
 
-if Difficulté == "f":
-    niveau_requis = d
-    print("Donjon")
-if Difficulté == "mo":
-    niveau_requis = f
-    print("Forêt")
-if Difficulté == "dif":
-    niveau_requis = lab
-    print("Labyrinthe")
+# Attribution du niveau en fonction de la difficulté choisi
+if Difficulté == facile:
+    niveau_requis = donjon
+elif Difficulté == moyen:
+    niveau_requis = foret
+elif Difficulté == difficile:
+    niveau_requis = labyrinthe
+
+# Affichage du récapitulatif du personnage
+print("\nRÉCAPITULATIF DU PERSONNAGE :")
+print(f"Personnage choisi : {Personnage}")
+print(f"Sexe choisi : {Sexe}")
+print(f"Arme choisie : {arme_choisi}")
+print(f"Difficulté choisie : {Difficulté} - Niveau : {niveau_requis}")
