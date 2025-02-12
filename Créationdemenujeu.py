@@ -58,6 +58,8 @@ elif Personnage == assassin:
         weapon_choice = input("Choisissez votre arme : Dagues, Couteaux de lancer ou Poison\n: ")
     arme_choisi = weapon_choice
 
+
+
 # Choix de la difficulté 
 Difficulté = input(f"Choisissez la difficulté que vous désirez : {facile}, {moyen}, {difficile}\n: ")
 while Difficulté not in choix_valides_difficulte:
@@ -78,3 +80,5 @@ print(f"Personnage choisi : {Personnage}")
 print(f"Sexe choisi : {Sexe}")
 print(f"Arme choisie : {arme_choisi}")
 print(f"Difficulté choisie : {Difficulté} - Niveau : {niveau_requis}")
+
+
